@@ -53,7 +53,7 @@ ul  { list-style: none; }
 
 /* --- Type scale --- */
 h1, h2, h3, h4 {
-    font-family: 'Syne', sans-serif;
+    font-family: 'Fraunces', sans-serif;
     font-weight: 800;
     line-height: 1.08;
     letter-spacing: -0.025em;
@@ -192,7 +192,7 @@ h1, h2, h3, h4 {
     letter-spacing: 0.04em;
 }
 .appstore-big {
-    font-family: 'Syne', sans-serif;
+    font-family: 'Fraunces', sans-serif;
     font-size: 17px;
     font-weight: 700;
     letter-spacing: -0.01em;
@@ -231,7 +231,7 @@ h1, h2, h3, h4 {
     justify-content: space-between;
 }
 .nav-logo {
-    font-family: 'Syne', sans-serif;
+    font-family: 'Fraunces', sans-serif;
     font-weight: 800;
     font-size: 20px;
     color: var(--dark);
@@ -279,6 +279,17 @@ h1, h2, h3, h4 {
     flex: 1;
     min-width: 0;
     max-width: 560px;
+}
+
+/* App name */
+.hero-appname {
+    font-family: 'Fraunces', serif;
+    font-size: 13px;
+    font-weight: 600;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--purple-mid);
+    margin-bottom: 16px;
 }
 
 /* Animated pill label */
@@ -375,7 +386,7 @@ h1, h2, h3, h4 {
     animation: float-badge 5.5s ease-in-out infinite 1.5s;
 }
 .badge-big {
-    font-family: 'Syne', sans-serif;
+    font-family: 'Fraunces', sans-serif;
     font-size: 26px;
     font-weight: 800;
     color: var(--magenta);
@@ -489,7 +500,7 @@ h1, h2, h3, h4 {
 }
 
 .feature-num {
-    font-family: 'Syne', sans-serif;
+    font-family: 'Fraunces', sans-serif;
     font-size: 12px;
     font-weight: 700;
     color: var(--magenta);
@@ -739,7 +750,7 @@ h1, h2, h3, h4 {
     flex-wrap: wrap;
 }
 .footer-logo {
-    font-family: 'Syne', sans-serif;
+    font-family: 'Fraunces', sans-serif;
     font-weight: 800;
     font-size: 17px;
     color: #fff;
