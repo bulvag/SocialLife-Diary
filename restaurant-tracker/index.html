@@ -1,108 +1,241 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width,initial-scale=1">
-  <title>Restaurant Tracker App — Log, Rate & Track Every Dining Out | SocialLife Diary</title>
-  <meta name="description" content="Track every restaurant visit with photos, ratings, spending and who you went with. SocialLife Diary is your personal dining diary for iPhone.">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Restaurant Tracker — Log, Rate & Track Every Dining Out | SocialLife Diary</title>
+    <meta name="description" content="Track every restaurant visit with photos, ratings, spending and who you went with. SocialLife Diary is your personal dining diary for iPhone.">
 
-  <!-- fonts -->
-  <link href="https://fonts.googleapis.com/css2?family=Cormorant:wght@400;600&family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
+    <!-- Open Graph -->
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="Restaurant Tracker — SocialLife Diary">
+    <meta property="og:description" content="Log every restaurant visit. Track spending, rate the vibe, see who you dine with most.">
+    <meta property="og:image" content="https://sociallife.makerka.com/restaurant-tracker/assets/screenshots/IMG_0095-portrait.png">
 
-  <link rel="stylesheet" href="style.css">
+    <!-- Fonts (same as main site) -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,600;0,9..144,700;1,9..144,400;1,9..144,700&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;1,9..40,300&display=swap" rel="stylesheet">
 
-  <!-- Google tag (gtag.js) -->
-  <script async src="https://www.googletagmanager.com/gtag/js?id=G-4F5Q07M28P"></script>
-  <script>
-      window.dataLayer = window.dataLayer || [];
-      function gtag(){dataLayer.push(arguments);}
-      gtag('js', new Date());
-      gtag('config', 'G-4F5Q07M28P');
-  </script>
+    <!-- Shared design system from main site -->
+    <link rel="stylesheet" href="../style.css">
+    <!-- Restaurant-specific overrides -->
+    <link rel="stylesheet" href="style.css">
+
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-4F5Q07M28P"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+        gtag('config', 'G-4F5Q07M28P');
+    </script>
 </head>
 <body>
-  <nav class="top-nav">
-    <a href="../index.html" class="nav-link">← SocialLife Diary</a>
-  </nav>
 
-  <main>
-    <!-- Hero -->
-    <section id="hero" class="hero section">
-      <div class="hero-content reveal">
-        <h1>Every dinner, remembered.</h1>
-        <p class="subhead">Rate restaurants, track spending, see who you dine with most. Your personal food diary.</p>
-        <a href="https://apps.apple.com/rs/app/sociallife-diary/id6758588325" class="app-button" target="_blank" rel="noopener">Download on the App Store</a>
-      </div>
-      <div class="hero-image reveal">
-        <img src="assets/screenshots/IMG_0095-left.png" alt="Tilted iPhone mockup showing the restaurant list feed" loading="lazy">
-      </div>
+    <!-- ===================== NAV ===================== -->
+    <nav class="nav" id="nav">
+        <div class="nav-inner">
+            <a href="../index.html" class="nav-logo">← SocialLife Diary</a>
+            <a href="https://apps.apple.com/rs/app/sociallife-diary/id6758588325"
+               class="nav-btn" target="_blank" rel="noopener">
+                Get the app
+            </a>
+        </div>
+    </nav>
+
+    <!-- ===================== HERO ===================== -->
+    <section class="hero">
+        <div class="hero-inner">
+
+            <div class="hero-text reveal">
+                <div class="hero-appname">SocialLife Diary</div>
+
+                <div class="hero-label">
+                    <span class="hero-label-dot"></span>
+                    Restaurant Tracker
+                </div>
+
+                <h1 class="hero-title">
+                    Every dinner,<br>
+                    <em>remembered.</em>
+                </h1>
+
+                <p class="hero-sub">
+                    Log every restaurant visit. Track spending, rate the vibe,
+                    see who you dine with most — and build a beautiful food diary
+                    that's entirely private.
+                </p>
+
+                <a href="https://apps.apple.com/rs/app/sociallife-diary/id6758588325"
+                   class="appstore-btn" target="_blank" rel="noopener">
+                    <svg class="apple-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+                        <path d="M18.71 19.5c-.83 1.24-1.71 2.45-3.05 2.47-1.34.03-1.77-.79-3.29-.79-1.53 0-2 .77-3.27.82-1.31.05-2.3-1.32-3.14-2.53C4.25 17 2.94 12.45 4.7 9.39c.87-1.52 2.43-2.48 4.12-2.51 1.28-.02 2.5.87 3.29.87.78 0 2.26-1.07 3.8-.91.65.03 2.47.26 3.64 1.98l-.09.06c-.22.15-2.18 1.27-2.16 3.8.03 3.02 2.65 4.03 2.68 4.04-.03.07-.42 1.44-1.38 2.83M13 3.5c.73-.83 1.94-1.46 2.94-1.5.13 1.17-.34 2.35-1.04 3.19-.69.85-1.83 1.51-2.95 1.42-.15-1.15.41-2.35 1.05-3.11z"/>
+                    </svg>
+                    <div class="appstore-text">
+                        <span class="appstore-small">Download on the</span>
+                        <span class="appstore-big">App Store</span>
+                    </div>
+                </a>
+
+                <p class="hero-note">Free &middot; Private &middot; No account needed</p>
+            </div>
+
+            <div class="hero-visual reveal" data-delay="150">
+                <div class="phone-wrap">
+                    <img src="assets/screenshots/IMG_0095-portrait.png"
+                         class="rt-hero-img"
+                         alt="Restaurant list feed in SocialLife Diary"
+                         loading="eager" fetchpriority="high" decoding="async">
+                    <div class="hero-badge hero-badge-1" aria-hidden="true">
+                        <span class="badge-big">127</span>
+                        <span class="badge-label">restaurants<br>visited</span>
+                    </div>
+                    <div class="hero-badge hero-badge-2" aria-hidden="true">
+                        <span class="badge-emoji">⭐</span>
+                        <span class="badge-label">8.4 avg<br>rating</span>
+                    </div>
+                    <div class="hero-badge hero-badge-3" aria-hidden="true">
+                        <span class="badge-emoji">💸</span>
+                        <span class="badge-label">€3.2k<br>tracked</span>
+                    </div>
+                </div><!-- phone-wrap -->
+            </div>
+        </div>
+
+        <div class="blob blob-1"></div>
+        <div class="blob blob-2"></div>
+        <div class="blob blob-3"></div>
     </section>
 
-    <!-- Log every outing -->
-    <section id="log" class="section split">
-      <div class="text reveal">
-        <h2>Log every restaurant visit</h2>
-        <p>Add the name, date, who you went with, how much you spent, and how you felt. Rate it from 1 to 10. Never forget a great meal again.</p>
-        <p class="tags">Tags: <span>date</span>, <span>dinner</span>, <span>celebration</span>, <span>friends</span></p>
-      </div>
-      <div class="image reveal">
-        <img src="assets/screenshots/IMG_0095-portrait.png" alt="Mobile screenshot of home feed with restaurant list" loading="lazy">
-      </div>
+    <!-- ===================== FEATURES ===================== -->
+    <section class="features">
+        <div class="features-inner">
+            <div class="section-header reveal">
+                <div class="section-label">What it tracks</div>
+                <h2 class="section-title">Your dining life,<br>fully logged.</h2>
+            </div>
+
+            <div class="features-grid">
+
+                <div class="feature-card fc-pink reveal">
+                    <div class="feature-phone">
+                        <img src="assets/screenshots/IMG_0095-portrait.png"
+                             class="rt-img rt-tilt-l" alt="Restaurant list feed" loading="lazy">
+                    </div>
+                    <div class="feature-copy">
+                        <div class="feature-num">01</div>
+                        <h3>Log every visit</h3>
+                        <p>Name, date, who you went with, how much you spent, how you felt. Rate it 1–10. Never forget a great meal again.</p>
+                    </div>
+                </div>
+
+                <div class="feature-card fc-lavender reveal" data-delay="100">
+                    <div class="feature-phone">
+                        <img src="assets/screenshots/IMG_0096-portrait.png"
+                             class="rt-img rt-tilt-r" alt="Food photo gallery" loading="lazy">
+                    </div>
+                    <div class="feature-copy">
+                        <div class="feature-num">02</div>
+                        <h3>A gallery of every meal</h3>
+                        <p>Every photo from every outing in one beautiful grid. Scroll back through months of dinners, brunches, and late-night bites.</p>
+                    </div>
+                </div>
+
+                <div class="feature-card fc-peach reveal">
+                    <div class="feature-phone">
+                        <img src="assets/screenshots/IMG_0102-portrait.png"
+                             class="rt-img rt-tilt-l" alt="Dining partner stats" loading="lazy">
+                    </div>
+                    <div class="feature-copy">
+                        <div class="feature-num">03</div>
+                        <h3>Favorite dining partner?</h3>
+                        <p>See who you eat out with most and how much you enjoy it. Discover your most frequent companion — and your highest-rated evenings.</p>
+                    </div>
+                </div>
+
+                <div class="feature-card fc-cream reveal" data-delay="100">
+                    <div class="feature-phone">
+                        <img src="assets/screenshots/IMG_0098-portrait.png"
+                             class="rt-img rt-tilt-r" alt="Vibe and mood tracking" loading="lazy">
+                    </div>
+                    <div class="feature-copy">
+                        <div class="feature-num">04</div>
+                        <h3>Rate the vibe, not just the food</h3>
+                        <p>Add a mood emoji and a rating to every outing. Over time, see which restaurants — and people — bring out your best evenings.</p>
+                    </div>
+                </div>
+
+            </div>
+        </div>
     </section>
 
-    <!-- Food gallery -->
-    <section id="gallery" class="section showcase">
-      <div class="showcase-image reveal">
-        <img src="assets/screenshots/IMG_0096-left.png" alt="Tilted screenshot of food gallery grid" loading="lazy">
-      </div>
-      <div class="showcase-text reveal">
-        <h2>A gallery of every meal</h2>
-        <p>Every photo from every outing in one beautiful grid. Scroll back through months of dinners, brunches, and late-night bites.</p>
-      </div>
+    <!-- ===================== STATS / SPENDING ===================== -->
+    <section class="stats-section">
+        <div class="stats-inner">
+            <div class="stats-text reveal">
+                <div class="section-label">Money</div>
+                <h2 class="section-title">Know exactly what<br>dining out costs you.</h2>
+                <ul class="stats-list">
+                    <li><span class="check-dot"></span>Total spending, any time range</li>
+                    <li><span class="check-dot"></span>Average cost per outing and per month</li>
+                    <li><span class="check-dot"></span>Which days of the week you spend most</li>
+                    <li><span class="check-dot"></span>Your most expensive restaurants</li>
+                </ul>
+                <a href="https://apps.apple.com/rs/app/sociallife-diary/id6758588325"
+                   class="appstore-btn" target="_blank" rel="noopener">
+                    <svg class="apple-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+                        <path d="M18.71 19.5c-.83 1.24-1.71 2.45-3.05 2.47-1.34.03-1.77-.79-3.29-.79-1.53 0-2 .77-3.27.82-1.31.05-2.3-1.32-3.14-2.53C4.25 17 2.94 12.45 4.7 9.39c.87-1.52 2.43-2.48 4.12-2.51 1.28-.02 2.5.87 3.29.87.78 0 2.26-1.07 3.8-.91.65.03 2.47.26 3.64 1.98l-.09.06c-.22.15-2.18 1.27-2.16 3.8.03 3.02 2.65 4.03 2.68 4.04-.03.07-.42 1.44-1.38 2.83M13 3.5c.73-.83 1.94-1.46 2.94-1.5.13 1.17-.34 2.35-1.04 3.19-.69.85-1.83 1.51-2.95 1.42-.15-1.15.41-2.35 1.05-3.11z"/>
+                    </svg>
+                    <div class="appstore-text">
+                        <span class="appstore-small">Download on the</span>
+                        <span class="appstore-big">App Store</span>
+                    </div>
+                </a>
+            </div>
+
+            <div class="stats-phones reveal" data-delay="150">
+                <img src="assets/screenshots/IMG_0104-portrait.png"
+                     class="rt-img rt-tilt-l" alt="Money stats overview" loading="lazy">
+                <img src="assets/screenshots/IMG_0105-portrait.png"
+                     class="rt-img" alt="Spending charts by weekday and month" loading="lazy">
+            </div>
+        </div>
     </section>
 
-    <!-- Dining partner -->
-    <section id="partner" class="section split reverse">
-      <div class="image reveal">
-        <img src="assets/screenshots/IMG_0102-portrait.png" alt="Screenshot showing people stats for dining partners" loading="lazy">
-      </div>
-      <div class="text reveal">
-        <h2>Who's your favorite dining partner?</h2>
-        <p>SocialLife Diary tracks who you go out with and how much you enjoy it. Discover your most frequent dinner companion — and your highest-rated evenings.</p>
-      </div>
+    <!-- ===================== CTA ===================== -->
+    <section class="cta-section">
+        <div class="cta-blob cta-blob-1"></div>
+        <div class="cta-blob cta-blob-2"></div>
+        <div class="cta-blob cta-blob-3"></div>
+        <div class="cta-inner reveal">
+            <div class="section-label light">Free Download</div>
+            <h2 class="cta-title">Start your<br>restaurant diary today.</h2>
+            <p class="cta-sub">Free to download. Everything stays private on your device.<br>No account needed.</p>
+            <a href="https://apps.apple.com/rs/app/sociallife-diary/id6758588325"
+               class="appstore-btn appstore-btn-light" target="_blank" rel="noopener">
+                <svg class="apple-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+                    <path d="M18.71 19.5c-.83 1.24-1.71 2.45-3.05 2.47-1.34.03-1.77-.79-3.29-.79-1.53 0-2 .77-3.27.82-1.31.05-2.3-1.32-3.14-2.53C4.25 17 2.94 12.45 4.7 9.39c.87-1.52 2.43-2.48 4.12-2.51 1.28-.02 2.5.87 3.29.87.78 0 2.26-1.07 3.8-.91.65.03 2.47.26 3.64 1.98l-.09.06c-.22.15-2.18 1.27-2.16 3.8.03 3.02 2.65 4.03 2.68 4.04-.03.07-.42 1.44-1.38 2.83M13 3.5c.73-.83 1.94-1.46 2.94-1.5.13 1.17-.34 2.35-1.04 3.19-.69.85-1.83 1.51-2.95 1.42-.15-1.15.41-2.35 1.05-3.11z"/>
+                </svg>
+                <div class="appstore-text">
+                    <span class="appstore-small">Download on the</span>
+                    <span class="appstore-big">App Store</span>
+                </div>
+            </a>
+        </div>
     </section>
 
-    <!-- Spending -->
-    <section id="spend" class="section stats">
-      <div class="stats-images reveal">
-        <img src="assets/screenshots/IMG_0104-left.png" alt="Tilted screenshot of money stats overview" loading="lazy">
-        <img src="assets/screenshots/IMG_0105-portrait.png" alt="Screenshot of spending charts by weekday and month" loading="lazy">
-      </div>
-      <div class="stats-text reveal">
-        <h2>Know exactly what dining out costs you</h2>
-        <p>See your total spending, average per outing, and which days of the week you spend the most. No budgeting app needed — it's all here.</p>
-      </div>
-    </section>
+    <!-- ===================== FOOTER ===================== -->
+    <footer class="footer">
+        <div class="footer-inner">
+            <a href="../index.html" class="footer-logo">SocialLife Diary</a>
+            <p class="footer-copy">© 2025 SocialLife Diary &middot; Made for iOS</p>
+            <div class="footer-links">
+                <a href="../index.html">← Back to main site</a>
+            </div>
+        </div>
+    </footer>
 
-    <!-- Vibes & Ratings -->
-    <section id="vibes" class="section split">
-      <div class="text reveal">
-        <h2>Rate the vibe, not just the food</h2>
-        <p>Add a mood emoji and a rating to every outing. Over time, see your average vibe score — and which restaurants (and people) bring out your best evenings.</p>
-      </div>
-      <div class="image reveal">
-        <img src="assets/screenshots/IMG_0098-portrait.png" alt="Screenshot of stats overview with Vibes rating" loading="lazy">
-      </div>
-    </section>
-
-    <!-- Download CTA -->
-    <section id="cta" class="section cta">
-      <h2>Start your restaurant diary today</h2>
-      <p class="subhead">Free to download. Private. No account needed.</p>
-      <a href="https://apps.apple.com/rs/app/sociallife-diary/id6758588325" class="app-button large" target="_blank" rel="noopener">Download on the App Store</a>
-    </section>
-  </main>
-
-  <script src="script.js"></script>
+    <script src="../script.js"></script>
 </body>
 </html>

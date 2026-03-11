@@ -1,85 +1,53 @@
-/* global resets */
-* { box-sizing: border-box; margin: 0; padding: 0; }
-html, body { height: 100%; }
-body {
-  font-family: "Cormorant", serif;
-  color: #4a372b;
-  background: #FFFAF4;
-  line-height: 1.6;
-  -webkit-font-smoothing: antialiased;
-}
-a { color: inherit; text-decoration: none; }
-img { max-width: 100%; height: auto; display: block; transition: transform 0.3s ease; border-radius: 8px; }
+/*
+ * Restaurant Tracker — style overrides
+ * Main design system is loaded from ../style.css
+ */
 
-section .image img:hover,
-section .stats-images img:hover { transform: scale(1.02); }
-
-/* typography helpers */
-h1, h2 { font-family: "Playfair Display", serif; color: #7B2D3E; }
-h1 { font-size: 2.5rem; margin-bottom: 0.5rem; }
-h2 { font-size: 1.75rem; margin-bottom: 0.5rem; }
-.subhead { font-size: 1.125rem; color: #8FAF7E; margin-bottom: 1rem; }
-.tags span { background: #E8A83820; padding: 0.15rem 0.4rem; border-radius: 3px; margin-right: 0.3rem; font-size: 0.9rem; }
-
-/* nav */
-.top-nav { padding: 1rem 1.5rem; }
-.nav-link { font-size: 1rem; }
-
-/* section layout */
-main { width: 100%; }
-.section { padding: 3rem 1.5rem; position: relative; width: 100%; }
-.section-inner { max-width: 1000px; margin: 0 auto; }
-.section.split { display: flex; flex-direction: column; gap: 2rem; max-width: 1000px; margin: 0 auto; }
-.section.split.reverse { flex-direction: column-reverse; }
-.section.stats { max-width: 1000px; margin: 0 auto; }
-.section.stats .stats-images { display: flex; flex-direction: column; gap: 1rem; }
-.section.stats .stats-images img { max-width: 100%; }
-.section.showcase { max-width: 1000px; margin: 0 auto; }
-
-/* hero */
-.hero { background: #F5E8DD url("") center/cover no-repeat; text-align: center; width: 100%; }
-.hero-content { max-width: 600px; margin: 0 auto 2rem; }
-.hero-image img { max-width: 300px; margin: 0 auto; animation: float 6s ease-in-out infinite; }
-
-@keyframes float {
-  0%,100% { transform: translateY(0); }
-  50% { transform: translateY(-10px); }
+/* Nav back-link */
+.nav-logo {
+    font-size: 15px;
+    opacity: 0.75;
+    letter-spacing: 0;
 }
 
-.app-button {
-  display: inline-block;
-  background: #7B2D3E;
-  color: #fff;
-  padding: 0.75rem 1.5rem;
-  border-radius: 5px;
-  font-weight: 600;
-  transition: background 0.3s ease;
-}
-.app-button:hover {
-  background: #E8A838;
+/* ── Screenshot images (already have device chrome baked in) ── */
+
+/* Hero image */
+.rt-hero-img {
+    width: 270px;
+    filter: drop-shadow(0 32px 64px rgba(61, 26, 94, 0.22));
+    animation: float 6.5s ease-in-out infinite;
 }
 
-.app-button.large { font-size: 1.25rem; padding: 1rem 2rem; }
-
-/* CTA */
-.cta { background: #7B2D3E; color: #fff; text-align: center; }
-.cta .subhead { color: #FFFAF4; }
-
-/* responsive */
-@media(min-width:768px){
-  .section.split { flex-direction: row; align-items: center; }
-  .section.split.reverse { flex-direction: row-reverse; }
-  .section.split .text, .section.split .image { flex:1; }
-  .stats .stats-images { flex-direction: row; }
-  .stats .stats-images img { flex:1; max-width: 48%; }
-  .hero { display: flex; align-items: center; justify-content: center; text-align: left; padding: 4rem 2rem; }
-  .hero > * { max-width: 500px; flex: 1; }
-  .hero-content { margin: 0 3rem 0 0; }
-  .hero-image img { width: 100%; max-width: 400px; }
-  /* CTA full width on desktop */
-  .cta { padding: 5rem 2rem; }
+/* Feature card images */
+.rt-img {
+    width: 210px;
+    filter: drop-shadow(0 16px 40px rgba(61, 26, 94, 0.18));
+    display: block;
+    margin: 0 auto;
 }
 
-/* simple reveal animation */
-.reveal { opacity: 0; transform: translateY(20px); transition: opacity 0.6s ease, transform 0.6s ease; }
-.reveal.visible { opacity: 1; transform: none; }
+/* Tilt helpers */
+.rt-tilt-l {
+    transform: rotate(-4deg);
+    animation: float-tilt-l 7s ease-in-out infinite;
+}
+.rt-tilt-r {
+    transform: rotate(4deg);
+    animation: float-tilt-r 6.5s ease-in-out infinite 0.4s;
+}
+
+/* Stats phones side by side */
+.stats-phones .rt-img {
+    width: 230px;
+    flex-shrink: 0;
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .rt-hero-img, .rt-tilt-l, .rt-tilt-r { animation: none; }
+}
+
+@media (max-width: 480px) {
+    .rt-hero-img { width: 220px; }
+    .rt-img      { width: 170px; }
+}
