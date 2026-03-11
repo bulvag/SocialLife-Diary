@@ -47,7 +47,21 @@
     .rt-hero-img, .rt-tilt-l, .rt-tilt-r { animation: none; }
 }
 
+/* Mobile: stack stats section, show only one screenshot */
+@media (max-width: 768px) {
+    .stats-phones {
+        justify-content: center;
+    }
+    .stats-phones .rt-img:last-child {
+        display: none;
+    }
+    .stats-phones .rt-img {
+        width: 260px;
+    }
+}
+
 @media (max-width: 480px) {
     .rt-hero-img { width: 220px; }
     .rt-img      { width: 170px; }
+    .stats-phones .rt-img { width: 220px; }
 }
