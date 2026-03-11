@@ -36,7 +36,10 @@
     padding: 0;
 }
 
-html { scroll-behavior: smooth; }
+html {
+    scroll-behavior: smooth;
+    overflow-x: hidden;
+}
 
 body {
     font-family: 'DM Sans', sans-serif;
@@ -44,6 +47,7 @@ body {
     color: var(--text);
     line-height: 1.6;
     overflow-x: hidden;
+    max-width: 100%;
     -webkit-font-smoothing: antialiased;
 }
 
@@ -592,6 +596,7 @@ h1, h2, h3, h4 {
     background-image: radial-gradient(rgba(255,255,255,0.035) 1px, transparent 1px);
     background-size: 26px 26px;
     padding: 110px 0;
+    overflow: hidden;
 }
 .gallery-inner {
     max-width: 1240px;
@@ -818,10 +823,8 @@ h1, h2, h3, h4 {
     .hero-sub  { margin-left: auto; margin-right: auto; }
     .hero-title { font-size: clamp(40px, 10vw, 60px); }
 
-    /* Reposition badges so they don't overflow */
-    .hero-badge-1 { right: -16px; top: 10%; }
-    .hero-badge-2 { left: -16px;  bottom: 18%; }
-    .hero-badge-3 { right: -10px; top: 46%; }
+    /* Hide badges on mobile — they cause horizontal overflow */
+    .hero-badge { display: none; }
 
     .features-grid { max-width: 100%; }
     .feature-card,
