@@ -49,6 +49,7 @@ body {
     overflow-x: hidden;
     max-width: 100%;
     -webkit-font-smoothing: antialiased;
+    touch-action: manipulation; /* prevents double-tap zoom so our double-tap scroll works */
 }
 
 img { max-width: 100%; display: block; }
