@@ -93,14 +93,13 @@ if (nav) {
 
     // Mobile: double-tap anywhere to toggle
     let lastTap = 0;
-    document.addEventListener('touchend', e => {
+    document.addEventListener('touchend', () => {
         const now = Date.now();
         if (now - lastTap < 300) {
-            e.preventDefault();
             toggleDemo();
         }
         lastTap = now;
-    }, { passive: false });
+    }, { passive: true });
 
     // URL param: ?demo
     if (new URLSearchParams(location.search).has('demo')) {
