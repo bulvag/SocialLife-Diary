@@ -38,14 +38,21 @@ if (nav) {
 }
 
 
-/* ─── Auto-scroll (double-tap to start/stop) ─── */
+/* ─── Auto-scroll floating button ─── */
 (function () {
-    const SPEED = 0.7; // px per frame — smanji za sporije
+    const SPEED = 0.7;
     let rafId = null;
     let active = false;
 
+    const btn = document.createElement('button');
+    btn.id = 'scroll-fab';
+    btn.setAttribute('aria-label', 'Auto scroll');
+    btn.innerHTML = '▶';
+    document.body.appendChild(btn);
+
     function start() {
         active = true;
+        btn.innerHTML = '⏹';
         function step() {
             if (!active) return;
             const maxScroll = document.body.scrollHeight - window.innerHeight;
@@ -58,17 +65,11 @@ if (nav) {
 
     function stop() {
         active = false;
+        btn.innerHTML = '▶';
         if (rafId) { cancelAnimationFrame(rafId); rafId = null; }
     }
 
-    let lastTap = 0;
-    document.addEventListener('touchend', () => {
-        const now = Date.now();
-        if (now - lastTap < 300) {
-            active ? stop() : start();
-        }
-        lastTap = now;
-    }, { passive: true });
+    btn.addEventListener('click', () => active ? stop() : start());
 }());
 
 /* ─── Smooth active-state feedback on App Store buttons ─── */
