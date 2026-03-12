@@ -38,24 +38,6 @@ if (nav) {
 }
 
 
-/* ─── Auto-scroll via URL param ?demo ─── */
-if (new URLSearchParams(location.search).has('demo')) {
-    window.addEventListener('load', () => {
-        const SPEED = 1;
-        let rafId = null;
-
-        document.querySelectorAll('.reveal').forEach(el => el.classList.add('visible'));
-
-        function step() {
-            const maxScroll = document.body.scrollHeight - window.innerHeight;
-            if (window.scrollY >= maxScroll) { cancelAnimationFrame(rafId); return; }
-            window.scrollBy(0, SPEED);
-            rafId = requestAnimationFrame(step);
-        }
-
-        rafId = requestAnimationFrame(step);
-    });
-}
 
 /* ─── Smooth active-state feedback on App Store buttons ─── */
 document.querySelectorAll('.appstore-btn').forEach(btn => {
