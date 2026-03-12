@@ -55,7 +55,21 @@ if (nav) {
 
     function startDemo() {
         showAllReveals();
-        window.scrollTo({ top: 0, behavior: 'instant' });
+
+        // Scroll smoothly to top first, then start auto-scroll
+        const distanceToTop = window.scrollY;
+        if (distanceToTop > 0) {
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+            const waitMs = Math.min(800, distanceToTop * 0.5);
+            setTimeout(beginScrolling, waitMs);
+        } else {
+            beginScrolling();
+        }
+
+        function beginScrolling() {
+            document.body.dataset.demoActive = '1';
+            rafId = requestAnimationFrame(step);
+        }
 
         function step() {
             const maxScroll = document.body.scrollHeight - window.innerHeight;
@@ -66,9 +80,6 @@ if (nav) {
             window.scrollBy(0, SCROLL_PX_PER_FRAME);
             rafId = requestAnimationFrame(step);
         }
-
-        rafId = requestAnimationFrame(step);
-        document.body.dataset.demoActive = '1';
     }
 
     function stopDemo() {
