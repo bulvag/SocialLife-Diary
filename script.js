@@ -40,7 +40,7 @@ if (nav) {
 
 /* ─── Auto-scroll floating button ─── */
 (function () {
-    const SPEED = 0.7;
+    const SPEED = 1;
     let rafId = null;
     let active = false;
 
@@ -69,7 +69,8 @@ if (nav) {
         if (rafId) { cancelAnimationFrame(rafId); rafId = null; }
     }
 
-    btn.addEventListener('pointerup', () => active ? stop() : start());
+    btn.addEventListener('touchend', (e) => { e.preventDefault(); active ? stop() : start(); }, { passive: false });
+    btn.addEventListener('click', () => active ? stop() : start());
 }());
 
 /* ─── Smooth active-state feedback on App Store buttons ─── */
