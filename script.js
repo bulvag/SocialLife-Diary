@@ -56,20 +56,10 @@ if (nav) {
     function startDemo() {
         showAllReveals();
 
-        // Scroll smoothly to top first, then start auto-scroll
-        const distanceToTop = window.scrollY;
-        if (distanceToTop > 0) {
-            window.scrollTo({ top: 0, behavior: 'smooth' });
-            const waitMs = Math.min(800, distanceToTop * 0.5);
-            setTimeout(beginScrolling, waitMs);
-        } else {
-            beginScrolling();
-        }
-
-        function beginScrolling() {
-            document.body.dataset.demoActive = '1';
-            rafId = requestAnimationFrame(step);
-        }
+        window.scrollTo({ top: 0, behavior: 'instant' });
+        document.body.dataset.demoActive = '1';
+        // Small delay so the instant jump settles before RAF starts
+        setTimeout(() => { rafId = requestAnimationFrame(step); }, 50);
 
         function step() {
             const maxScroll = document.body.scrollHeight - window.innerHeight;
