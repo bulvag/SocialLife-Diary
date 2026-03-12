@@ -38,40 +38,23 @@ if (nav) {
 }
 
 
-/* ─── Auto-scroll floating button ─── */
-(function () {
+/* ─── Auto-scroll via URL param ?demo ─── */
+if (new URLSearchParams(location.search).has('demo')) {
     const SPEED = 1;
     let rafId = null;
-    let active = false;
 
-    const btn = document.createElement('button');
-    btn.id = 'scroll-fab';
-    btn.setAttribute('aria-label', 'Auto scroll');
-    btn.innerHTML = '▶';
-    document.body.appendChild(btn);
+    // show all reveal elements instantly
+    document.querySelectorAll('.reveal').forEach(el => el.classList.add('visible'));
 
-    function start() {
-        active = true;
-        btn.innerHTML = '⏹';
-        function step() {
-            if (!active) return;
-            const maxScroll = document.body.scrollHeight - window.innerHeight;
-            if (window.scrollY >= maxScroll) { stop(); return; }
-            window.scrollBy(0, SPEED);
-            rafId = requestAnimationFrame(step);
-        }
+    function step() {
+        const maxScroll = document.body.scrollHeight - window.innerHeight;
+        if (window.scrollY >= maxScroll) { cancelAnimationFrame(rafId); return; }
+        window.scrollBy(0, SPEED);
         rafId = requestAnimationFrame(step);
     }
 
-    function stop() {
-        active = false;
-        btn.innerHTML = '▶';
-        if (rafId) { cancelAnimationFrame(rafId); rafId = null; }
-    }
-
-    btn.addEventListener('touchend', (e) => { e.preventDefault(); active ? stop() : start(); }, { passive: false });
-    btn.addEventListener('click', () => active ? stop() : start());
-}());
+    rafId = requestAnimationFrame(step);
+}
 
 /* ─── Smooth active-state feedback on App Store buttons ─── */
 document.querySelectorAll('.appstore-btn').forEach(btn => {
