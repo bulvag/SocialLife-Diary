@@ -69,7 +69,7 @@ if (nav) {
         if (rafId) { cancelAnimationFrame(rafId); rafId = null; }
     }
 
-    btn.addEventListener('click', () => active ? stop() : start());
+    btn.addEventListener('pointerup', () => active ? stop() : start());
 }());
 
 /* ─── Smooth active-state feedback on App Store buttons ─── */
