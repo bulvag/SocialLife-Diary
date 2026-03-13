@@ -19,8 +19,8 @@ if (revealEls.length > 0) {
             revealObserver.unobserve(entry.target);
         });
     }, {
-        threshold: 0.08,
-        rootMargin: '0px 0px -50px 0px'
+        threshold: 0.01,
+        rootMargin: '0px 0px 150px 0px'
     });
 
     revealEls.forEach(el => revealObserver.observe(el));
