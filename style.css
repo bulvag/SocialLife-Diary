@@ -858,7 +858,8 @@ h1, h2, h3, h4 {
     background-image: linear-gradient(135deg, #2D0A00 0%, #1A0A0A 50%, #0A001A 100%);
     border-radius: var(--radius-card);
     padding: 36px 40px;
-    margin-bottom: 16px;
+    margin-top: 32px;
+    margin-bottom: 32px;
     text-decoration: none;
     color: #fff;
     transition: transform 0.25s ease, box-shadow 0.25s ease;
