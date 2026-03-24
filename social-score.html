@@ -1,0 +1,717 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Social Life Check · How Social Are You?</title>
+<meta name="description" content="Take the Social Life Check · 10 questions to find out how active and fulfilling your social life really is.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,600;0,9..144,700;1,9..144,400;1,9..144,700&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;1,9..40,300&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --bg:        #FFF8F0;
+    --bg-2:      #F7EEE3;
+    --surface:   #ffffff;
+    --surface2:  #F7EEE3;
+    --border:    rgba(61, 26, 94, 0.1);
+    --accent:    #CC44FF;
+    --accent-dim: rgba(204, 68, 255, 0.07);
+    --text:      #1A0A2E;
+    --muted:     #7B5F99;
+    --soft:      #4A2E6E;
+    --dark:      #130A24;
+    --purple-mid:#7B4DB0;
+    --bar-low:   #7B4DB0;
+    --bar-high:  #CC44FF;
+  }
+
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  body {
+    background: var(--bg);
+    color: var(--text);
+    font-family: 'DM Sans', sans-serif;
+    font-weight: 300;
+    min-height: 100vh;
+    overflow-x: hidden;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  a { text-decoration: none; color: inherit; }
+
+  /* ─── Top bar ─── */
+  .site-nav {
+    position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+    background: rgba(255, 248, 240, 0.9);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    border-bottom: 1px solid rgba(61, 26, 94, 0.07);
+    display: flex; align-items: center; justify-content: space-between;
+    padding: 0 24px; height: 52px;
+  }
+
+  .site-nav-logo {
+    font-family: 'Fraunces', serif; font-weight: 800; font-size: 16px;
+    color: var(--dark); letter-spacing: -0.02em;
+  }
+
+  .site-nav-btn {
+    background: var(--dark); color: #fff; font-size: 12px; font-weight: 500;
+    padding: 7px 18px; border-radius: 100px; transition: background 0.2s;
+  }
+
+  .site-nav-btn:hover { background: #3D1A5E; }
+
+  /* ─── Container ─── */
+  .container {
+    max-width: 640px;
+    margin: 0 auto;
+    padding: 72px 20px 80px;
+    position: relative;
+    z-index: 1;
+  }
+
+  /* ─── Header ─── */
+  header {
+    text-align: center;
+    margin-bottom: 40px;
+    animation: fadeUp 0.8s ease both;
+  }
+
+  .eyebrow {
+    font-size: 11px; font-weight: 500; letter-spacing: 0.22em;
+    text-transform: uppercase; color: var(--accent); margin-bottom: 14px; opacity: 0.9;
+  }
+
+  h1 {
+    font-family: 'Fraunces', serif;
+    font-size: clamp(32px, 7vw, 50px);
+    line-height: 1.1; font-weight: 700; margin-bottom: 16px;
+    color: var(--text); letter-spacing: -0.025em;
+  }
+
+  h1 em { font-style: italic; color: var(--accent); }
+
+  .subtitle {
+    font-size: 15px; color: var(--muted); line-height: 1.65;
+    max-width: 380px; margin: 0 auto;
+  }
+
+  .divider {
+    width: 36px; height: 2px; background: var(--accent);
+    margin: 22px auto 0; opacity: 0.4;
+  }
+
+  /* ─── Progress ─── */
+  .progress-wrap {
+    margin-bottom: 18px;
+    animation: fadeUp 0.8s 0.1s ease both;
+  }
+
+  .progress-meta {
+    display: flex; justify-content: space-between;
+    font-size: 11px; color: var(--muted); margin-bottom: 7px;
+  }
+
+  .progress-track {
+    background: rgba(61, 26, 94, 0.08);
+    border-radius: 100px; height: 4px; overflow: hidden;
+  }
+
+  .progress-fill {
+    height: 100%;
+    background: linear-gradient(90deg, var(--bar-low), var(--bar-high));
+    border-radius: 100px; transition: width 0.4s ease; width: 0%;
+  }
+
+  /* ─── Quiz ─── */
+  .quiz { animation: fadeUp 0.8s 0.15s ease both; }
+
+  .question-block {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 16px; padding: 22px 24px; margin-bottom: 10px;
+    transition: border-color 0.2s;
+  }
+
+  .question-block:focus-within { border-color: rgba(204, 68, 255, 0.32); }
+
+  .question-number {
+    font-size: 10px; font-weight: 500; letter-spacing: 0.18em;
+    text-transform: uppercase; color: var(--purple-mid); margin-bottom: 8px;
+  }
+
+  .question-text {
+    font-family: 'Fraunces', serif;
+    font-size: 16px; line-height: 1.45; margin-bottom: 15px; color: var(--text);
+  }
+
+  .options { display: flex; flex-direction: column; gap: 6px; }
+
+  .option-label {
+    display: flex; align-items: center; gap: 11px;
+    padding: 10px 13px;
+    border: 1px solid var(--border);
+    border-radius: 9px; cursor: pointer;
+    transition: border-color 0.15s, background 0.15s;
+    font-size: 13px; color: var(--soft);
+    user-select: none; background: var(--surface2);
+  }
+
+  .option-label input[type="radio"] {
+    appearance: none;
+    width: 16px; height: 16px;
+    border: 2px solid rgba(61, 26, 94, 0.2);
+    border-radius: 50%; flex-shrink: 0;
+    transition: all 0.15s; background: #fff;
+  }
+
+  .option-label input[type="radio"]:checked {
+    border-color: var(--accent);
+    background: var(--accent);
+    box-shadow: inset 0 0 0 3px #fff;
+  }
+
+  .option-label:has(input:checked) {
+    border-color: rgba(204, 68, 255, 0.38);
+    background: var(--accent-dim);
+    color: var(--text); font-weight: 500;
+  }
+
+  @media (hover: hover) {
+    .option-label:hover {
+      border-color: rgba(204, 68, 255, 0.25);
+      background: var(--accent-dim);
+    }
+  }
+
+  /* ─── Submit ─── */
+  .submit-area { text-align: center; margin-top: 24px; }
+
+  .btn {
+    display: inline-block;
+    background: var(--dark); color: white;
+    font-family: 'DM Sans', sans-serif;
+    font-size: 15px; font-weight: 500; letter-spacing: 0.04em;
+    padding: 14px 46px; border-radius: 100px; border: none;
+    cursor: pointer; transition: all 0.2s;
+    box-shadow: 0 4px 20px rgba(19, 10, 36, 0.18);
+  }
+
+  .btn:hover { background: #3D1A5E; transform: translateY(-1px); }
+
+  .error-msg { color: var(--accent); font-size: 13px; margin-top: 10px; display: none; }
+
+  /* ─── Result ─── */
+  #result { display: none; animation: fadeUp 0.7s ease both; }
+
+  .result-card {
+    background: var(--surface); border: 1px solid var(--border);
+    border-radius: 20px; padding: 32px 26px; text-align: center; margin-bottom: 12px;
+  }
+
+  .score-label {
+    font-size: 10px; font-weight: 500; letter-spacing: 0.2em;
+    text-transform: uppercase; color: var(--muted); margin-bottom: 8px;
+  }
+
+  .score-number {
+    font-family: 'Fraunces', serif;
+    font-size: 80px; font-weight: 700; line-height: 1;
+    color: var(--accent); margin-bottom: 2px;
+  }
+
+  .score-max { font-size: 12px; color: var(--muted); margin-bottom: 18px; }
+
+  .score-bar-wrap {
+    background: rgba(61, 26, 94, 0.08);
+    border-radius: 100px; height: 6px;
+    margin: 0 auto 22px; max-width: 260px; overflow: hidden;
+  }
+
+  .score-bar-fill {
+    height: 100%;
+    background: linear-gradient(90deg, var(--bar-low), var(--bar-high));
+    border-radius: 100px;
+    transition: width 1s cubic-bezier(0.34, 1.56, 0.64, 1);
+    width: 0%;
+  }
+
+  .score-title {
+    font-family: 'Fraunces', serif;
+    font-size: 22px; font-weight: 700; margin-bottom: 10px;
+    color: var(--text); letter-spacing: -0.02em;
+  }
+
+  .score-desc { font-size: 14px; line-height: 1.7; color: var(--muted); max-width: 400px; margin: 0 auto; }
+
+  /* ─── Category chart ─── */
+  .chart-section {
+    background: var(--surface); border: 1px solid var(--border);
+    border-radius: 16px; padding: 20px 22px; margin-bottom: 12px;
+  }
+
+  .chart-title {
+    font-size: 10px; font-weight: 500; letter-spacing: 0.16em;
+    text-transform: uppercase; color: var(--purple-mid); margin-bottom: 18px;
+  }
+
+  .chart-row { margin-bottom: 13px; }
+  .chart-row:last-child { margin-bottom: 0; }
+
+  .chart-row-meta {
+    display: flex; justify-content: space-between; align-items: baseline; margin-bottom: 5px;
+  }
+
+  .chart-row-label { font-size: 13px; color: var(--soft); }
+  .chart-row-val { font-size: 13px; font-weight: 500; color: var(--text); }
+
+  .chart-bar-track {
+    background: rgba(61, 26, 94, 0.08);
+    border-radius: 100px; height: 7px; overflow: hidden;
+  }
+
+  .chart-bar-fill {
+    height: 100%; border-radius: 100px;
+    background: linear-gradient(90deg, var(--bar-low), var(--bar-high));
+    transition: width 1s cubic-bezier(0.34, 1.2, 0.64, 1); width: 0%;
+  }
+
+  /* ─── Insights ─── */
+  .insights-section {
+    background: var(--surface); border: 1px solid var(--border);
+    border-radius: 16px; padding: 20px 22px; margin-bottom: 12px;
+  }
+
+  .insights-title {
+    font-size: 10px; font-weight: 500; letter-spacing: 0.16em;
+    text-transform: uppercase; color: var(--purple-mid); margin-bottom: 14px;
+  }
+
+  .insight-item {
+    font-size: 13px; line-height: 1.6; color: var(--soft);
+    padding: 7px 0; border-bottom: 1px solid var(--border);
+    display: flex; align-items: flex-start; gap: 10px;
+  }
+
+  .insight-item:last-child { border-bottom: none; }
+
+  .insight-dot {
+    width: 5px; height: 5px; border-radius: 50%;
+    background: var(--accent); flex-shrink: 0; margin-top: 7px;
+  }
+
+  /* ─── CTA card (post-result) ─── */
+  .cta-card {
+    background: var(--accent);
+    border-radius: 20px; padding: 32px 24px; text-align: center;
+    margin-bottom: 12px; position: relative; overflow: hidden;
+  }
+
+  .cta-card::before {
+    content: ''; position: absolute; top: -60px; right: -60px;
+    width: 200px; height: 200px; background: rgba(255, 255, 255, 0.1);
+    border-radius: 50%; pointer-events: none;
+  }
+
+  .cta-eyebrow {
+    font-size: 10px; font-weight: 500; letter-spacing: 0.2em;
+    text-transform: uppercase; color: rgba(255, 255, 255, 0.7);
+    margin-bottom: 9px; position: relative; z-index: 1;
+  }
+
+  .cta-title {
+    font-family: 'Fraunces', serif;
+    font-size: 22px; font-weight: 700; margin-bottom: 9px;
+    color: #fff; letter-spacing: -0.02em; line-height: 1.2;
+    position: relative; z-index: 1;
+  }
+
+  .cta-title em { font-style: italic; opacity: 0.9; }
+
+  .cta-text {
+    font-size: 13px; line-height: 1.65; color: rgba(255, 255, 255, 0.8);
+    margin: 0 auto 20px; max-width: 320px;
+    position: relative; z-index: 1;
+  }
+
+  .btn-cta {
+    display: inline-block; background: #fff; color: var(--dark);
+    font-family: 'DM Sans', sans-serif; font-size: 14px; font-weight: 600;
+    padding: 13px 32px; border-radius: 100px;
+    transition: all 0.2s; box-shadow: 0 4px 16px rgba(0, 0, 0, 0.14);
+    position: relative; z-index: 1;
+  }
+
+  .btn-cta:hover { transform: translateY(-2px); box-shadow: 0 8px 28px rgba(0, 0, 0, 0.2); }
+
+  /* ─── Retake + Footer ─── */
+  .retake {
+    display: block; text-align: center; margin-top: 16px;
+    font-size: 13px; color: var(--muted); cursor: pointer;
+    text-decoration: underline; text-underline-offset: 3px;
+  }
+
+  .retake:hover { color: var(--accent); }
+
+  footer {
+    text-align: center; margin-top: 40px; font-size: 12px;
+    color: var(--muted); opacity: 0.5;
+  }
+
+  footer a { color: var(--muted); }
+
+  @keyframes fadeUp {
+    from { opacity: 0; transform: translateY(16px); }
+    to   { opacity: 1; transform: translateY(0); }
+  }
+
+  @media (max-width: 480px) {
+    .container { padding: 68px 14px 60px; }
+    .question-block { padding: 18px 16px; }
+    .result-card { padding: 26px 18px; }
+    .score-number { font-size: 66px; }
+  }
+</style>
+</head>
+<body>
+<nav class="site-nav">
+  <a href="https://sociallife.makerka.com" class="site-nav-logo">SocialLife Diary</a>
+  <a href="https://apps.apple.com/rs/app/sociallife-diary/id6758588325" class="site-nav-btn" target="_blank" rel="noopener">Get the app</a>
+</nav>
+
+<div class="container">
+
+  <header>
+    <p class="eyebrow">Social Life Check</p>
+    <h1>How <em>social</em> is<br>your life, really?</h1>
+    <p class="subtitle">10 honest questions · find out where you stand and what it means.</p>
+    <div class="divider"></div>
+  </header>
+
+  <div class="progress-wrap">
+    <div class="progress-meta">
+      <span id="progressLabel">0 of 10 answered</span>
+      <span id="progressPct">0%</span>
+    </div>
+    <div class="progress-track">
+      <div class="progress-fill" id="progressFill"></div>
+    </div>
+  </div>
+
+  <div class="quiz" id="quiz">
+
+    <div class="question-block">
+      <p class="question-number">Question 01</p>
+      <p class="question-text">How often do you spend quality time with friends or family?</p>
+      <div class="options">
+        <label class="option-label"><input type="radio" name="q1" value="1"> Rarely · a few times a year</label>
+        <label class="option-label"><input type="radio" name="q1" value="2"> Once or twice a month</label>
+        <label class="option-label"><input type="radio" name="q1" value="3"> A few times a week</label>
+        <label class="option-label"><input type="radio" name="q1" value="4"> Almost every day</label>
+      </div>
+    </div>
+
+    <div class="question-block">
+      <p class="question-number">Question 02</p>
+      <p class="question-text">How many people could you call right now if you needed support?</p>
+      <div class="options">
+        <label class="option-label"><input type="radio" name="q2" value="1"> None or just one</label>
+        <label class="option-label"><input type="radio" name="q2" value="2"> 2–3 people</label>
+        <label class="option-label"><input type="radio" name="q2" value="3"> 4–6 people</label>
+        <label class="option-label"><input type="radio" name="q2" value="4"> More than 6</label>
+      </div>
+    </div>
+
+    <div class="question-block">
+      <p class="question-number">Question 03</p>
+      <p class="question-text">When did you last initiate plans with someone?</p>
+      <div class="options">
+        <label class="option-label"><input type="radio" name="q3" value="1"> More than a month ago</label>
+        <label class="option-label"><input type="radio" name="q3" value="2"> A couple of weeks ago</label>
+        <label class="option-label"><input type="radio" name="q3" value="3"> This week</label>
+        <label class="option-label"><input type="radio" name="q3" value="4"> Today or yesterday</label>
+      </div>
+    </div>
+
+    <div class="question-block">
+      <p class="question-number">Question 04</p>
+      <p class="question-text">After a typical social event, how do you usually feel?</p>
+      <div class="options">
+        <label class="option-label"><input type="radio" name="q4" value="1"> Drained · I need days to recover</label>
+        <label class="option-label"><input type="radio" name="q4" value="2"> Tired but it was worth it</label>
+        <label class="option-label"><input type="radio" name="q4" value="3"> Pretty good and recharged</label>
+        <label class="option-label"><input type="radio" name="q4" value="4"> Energized and happy</label>
+      </div>
+    </div>
+
+    <div class="question-block">
+      <p class="question-number">Question 05</p>
+      <p class="question-text">Do you feel like you have enough meaningful social connection in your life?</p>
+      <div class="options">
+        <label class="option-label"><input type="radio" name="q5" value="1"> No · I feel quite isolated</label>
+        <label class="option-label"><input type="radio" name="q5" value="2"> Not really, I wish I had more</label>
+        <label class="option-label"><input type="radio" name="q5" value="3"> Mostly yes, could be richer</label>
+        <label class="option-label"><input type="radio" name="q5" value="4"> Yes, I feel well connected</label>
+      </div>
+    </div>
+
+    <div class="question-block">
+      <p class="question-number">Question 06</p>
+      <p class="question-text">How intentional are you about maintaining relationships?</p>
+      <div class="options">
+        <label class="option-label"><input type="radio" name="q6" value="1"> I wait for others to reach out</label>
+        <label class="option-label"><input type="radio" name="q6" value="2"> I try but often forget</label>
+        <label class="option-label"><input type="radio" name="q6" value="3"> I make some effort regularly</label>
+        <label class="option-label"><input type="radio" name="q6" value="4"> I actively nurture my relationships</label>
+      </div>
+    </div>
+
+    <div class="question-block">
+      <p class="question-number">Question 07</p>
+      <p class="question-text">How deep are your closest relationships?</p>
+      <div class="options">
+        <label class="option-label"><input type="radio" name="q7" value="1"> Mostly surface-level</label>
+        <label class="option-label"><input type="radio" name="q7" value="2"> Some depth, but I want more</label>
+        <label class="option-label"><input type="radio" name="q7" value="3"> Pretty deep with a few people</label>
+        <label class="option-label"><input type="radio" name="q7" value="4"> Very deep · I can be fully myself</label>
+      </div>
+    </div>
+
+    <div class="question-block">
+      <p class="question-number">Question 08</p>
+      <p class="question-text">How often do you meet new people or expand your social circle?</p>
+      <div class="options">
+        <label class="option-label"><input type="radio" name="q8" value="1"> Almost never</label>
+        <label class="option-label"><input type="radio" name="q8" value="2"> Occasionally, when it just happens</label>
+        <label class="option-label"><input type="radio" name="q8" value="3"> A few times a year intentionally</label>
+        <label class="option-label"><input type="radio" name="q8" value="4"> Regularly · I enjoy meeting new people</label>
+      </div>
+    </div>
+
+    <div class="question-block">
+      <p class="question-number">Question 09</p>
+      <p class="question-text">How varied are the social activities in your life?</p>
+      <div class="options">
+        <label class="option-label"><input type="radio" name="q9" value="1"> Very limited · mostly one context</label>
+        <label class="option-label"><input type="radio" name="q9" value="2"> A couple of recurring settings</label>
+        <label class="option-label"><input type="radio" name="q9" value="3"> A decent mix of places and people</label>
+        <label class="option-label"><input type="radio" name="q9" value="4"> Rich variety · dinners, trips, events, spontaneous</label>
+      </div>
+    </div>
+
+    <div class="question-block">
+      <p class="question-number">Question 10</p>
+      <p class="question-text">Do your relationships feel balanced · you give and receive equally?</p>
+      <div class="options">
+        <label class="option-label"><input type="radio" name="q10" value="1"> No · I feel like I give much more</label>
+        <label class="option-label"><input type="radio" name="q10" value="2"> Somewhat unbalanced</label>
+        <label class="option-label"><input type="radio" name="q10" value="3"> Mostly balanced</label>
+        <label class="option-label"><input type="radio" name="q10" value="4"> Very balanced · it feels truly mutual</label>
+      </div>
+    </div>
+
+    <div class="submit-area">
+      <button class="btn" onclick="calculateScore()">See My Results →</button>
+      <p class="error-msg" id="error">Please answer all questions to continue.</p>
+    </div>
+  </div>
+
+  <!-- RESULT -->
+  <div id="result">
+    <div class="result-card">
+      <p class="score-label">Your Social Life Score</p>
+      <div class="score-number" id="scoreNum">0</div>
+      <p class="score-max">out of 100</p>
+      <div class="score-bar-wrap">
+        <div class="score-bar-fill" id="scoreBar"></div>
+      </div>
+      <h2 class="score-title" id="scoreTitle"></h2>
+      <p class="score-desc" id="scoreDesc"></p>
+    </div>
+
+    <div class="chart-section">
+      <p class="chart-title">Your breakdown</p>
+      <div id="chartRows"></div>
+    </div>
+
+    <div class="insights-section">
+      <p class="insights-title">Personalized insights</p>
+      <div id="insightsList"></div>
+    </div>
+
+    <div class="cta-card">
+      <p class="cta-eyebrow">Want to track this over time?</p>
+      <h3 class="cta-title">Meet <em>SocialLife Diary</em></h3>
+      <p class="cta-text">Your private journal for social events, friendships, and memories. See how your social life evolves · week by week, year by year.</p>
+      <a href="https://sociallife.makerka.com" class="btn-cta">Try SocialLife Diary →</a>
+    </div>
+
+    <span class="retake" onclick="retake()">← Take the check again</span>
+  </div>
+
+  <footer>
+    <p>Made by <a href="https://sociallife.makerka.com">SocialLife Diary</a> · No signup · No data stored</p>
+  </footer>
+
+</div>
+<script>
+  const questions = ['q1','q2','q3','q4','q5','q6','q7','q8','q9','q10'];
+
+  // Live progress
+  questions.forEach(name => {
+    document.querySelectorAll(`input[name="${name}"]`).forEach(input => {
+      input.addEventListener('change', updateProgress);
+    });
+  });
+
+  function updateProgress() {
+    const answered = questions.filter(n => document.querySelector(`input[name="${n}"]:checked`)).length;
+    const pct = Math.round((answered / questions.length) * 100);
+    document.getElementById('progressFill').style.width = pct + '%';
+    document.getElementById('progressLabel').textContent = answered + ' of ' + questions.length + ' answered';
+    document.getElementById('progressPct').textContent = pct + '%';
+  }
+
+  // Categories map to question indices (0-based)
+  const categories = [
+    { label: 'Frequency',    qs: [0, 1] },
+    { label: 'Initiation',   qs: [2, 5] },
+    { label: 'Depth',        qs: [4, 6] },
+    { label: 'Variety',      qs: [3, 8] },
+    { label: 'Growth',       qs: [7, 9] },
+  ];
+
+  const levels = [
+    {
+      min: 0, max: 30,
+      title: "Socially Dormant",
+      desc: "Your social life is running on very low energy right now. That's okay · awareness is the first step. Even small, consistent efforts can shift things significantly.",
+      insights: [
+        "Most of your social needs are going unmet · this can quietly affect your mood and energy over time.",
+        "You rarely initiate plans, which may make others assume you prefer solitude.",
+        "Start small: one message, one plan. Momentum builds faster than you think."
+      ]
+    },
+    {
+      min: 31, max: 50,
+      title: "Socially Quiet",
+      desc: "You have some connections, but your social life isn't as rich as it could be. The desire to connect is there · it just needs a little more structure.",
+      insights: [
+        "You have a small but real support network. That's already a foundation to build on.",
+        "You tend to wait for others to reach out · taking the lead more often could open new doors.",
+        "Your social wellbeing would benefit from more regular, intentional connection."
+      ]
+    },
+    {
+      min: 51, max: 65,
+      title: "Socially Steady",
+      desc: "You have a functional social life with real connections. You show up for people · with a bit more intention, it could become something truly fulfilling.",
+      insights: [
+        "You have a solid circle and generally show up for people. That matters more than you think.",
+        "You sometimes feel the quality of connection could go a little deeper.",
+        "Tracking your social patterns might reveal seasonal dips worth addressing."
+      ]
+    },
+    {
+      min: 66, max: 80,
+      title: "Socially Thriving",
+      desc: "You nurture your relationships with real intention and it shows. Your social life is a genuine source of energy and joy in your life.",
+      insights: [
+        "You're proactive about plans and relationships · a rare and valuable quality.",
+        "Social events leave you recharged, which means you're spending time with the right people.",
+        "You're a connector. People in your life probably value you more than they say."
+      ]
+    },
+    {
+      min: 81, max: 100,
+      title: "Socially Flourishing",
+      desc: "Your social life is exceptional. You've built deep, meaningful connections across multiple contexts · and you actively tend to all of them.",
+      insights: [
+        "You have both quantity and quality in your relationships · that combination is genuinely rare.",
+        "You lead with initiation and presence, which creates safety for others to open up.",
+        "Documenting and reflecting on these relationships over time could deepen them even further."
+      ]
+    }
+  ];
+
+  function calculateScore() {
+    const vals = [];
+    for (const n of questions) {
+      const v = document.querySelector('input[name="' + n + '"]:checked');
+      if (!v) {
+        document.getElementById('error').style.display = 'block';
+        return;
+      }
+      vals.push(parseInt(v.value));
+    }
+    document.getElementById('error').style.display = 'none';
+
+    const total = vals.reduce(function(a, b) { return a + b; }, 0);
+    const score = Math.round((total / (questions.length * 4)) * 100);
+    const level = levels.find(function(l) { return score >= l.min && score <= l.max; }) || levels[levels.length - 1];
+
+    document.getElementById('quiz').style.display = 'none';
+    document.getElementById('result').style.display = 'block';
+
+    // Animate score number
+    let current = 0;
+    const interval = setInterval(function() {
+      current += 2;
+      if (current >= score) { current = score; clearInterval(interval); }
+      document.getElementById('scoreNum').textContent = current;
+    }, 16);
+
+    setTimeout(function() {
+      document.getElementById('scoreBar').style.width = score + '%';
+    }, 80);
+
+    document.getElementById('scoreTitle').textContent = level.title;
+    document.getElementById('scoreDesc').textContent = level.desc;
+
+    // Build category chart
+    const chartRows = document.getElementById('chartRows');
+    chartRows.innerHTML = '';
+    categories.forEach(function(cat, i) {
+      const catTotal = cat.qs.reduce(function(sum, qi) { return sum + vals[qi]; }, 0);
+      const catPct = Math.round((catTotal / (cat.qs.length * 4)) * 100);
+      chartRows.innerHTML += '<div class="chart-row">' +
+        '<div class="chart-row-meta">' +
+        '<span class="chart-row-label">' + cat.label + '</span>' +
+        '<span class="chart-row-val">' + catPct + '%</span>' +
+        '</div>' +
+        '<div class="chart-bar-track">' +
+        '<div class="chart-bar-fill" id="cbar' + i + '"></div>' +
+        '</div></div>';
+    });
+
+    setTimeout(function() {
+      categories.forEach(function(cat, i) {
+        const catTotal = cat.qs.reduce(function(sum, qi) { return sum + vals[qi]; }, 0);
+        const catPct = Math.round((catTotal / (cat.qs.length * 4)) * 100);
+        const bar = document.getElementById('cbar' + i);
+        if (bar) bar.style.width = catPct + '%';
+      });
+    }, 250);
+
+    // Insights
+    const list = document.getElementById('insightsList');
+    list.innerHTML = '';
+    level.insights.forEach(function(insight) {
+      list.innerHTML += '<div class="insight-item"><span class="insight-dot"></span><span>' + insight + '</span></div>';
+    });
+
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  }
+
+  function retake() {
+    document.querySelectorAll('input[type="radio"]').forEach(function(r) { r.checked = false; });
+    updateProgress();
+    document.getElementById('result').style.display = 'none';
+    document.getElementById('quiz').style.display = 'block';
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  }
+</script>
+</body>
+</html>
