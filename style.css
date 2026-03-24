@@ -691,7 +691,7 @@ h1, h2, h3, h4 {
    =============================================================== */
 .blog-section {
     padding: 110px 0;
-    background: var(--cream);
+    background: var(--cream-2);
 }
 
 .blog-inner {
@@ -709,6 +709,8 @@ h1, h2, h3, h4 {
 }
 
 .blog-card {
+    background: #fff;
+    border: 1px solid rgba(61, 26, 94, 0.08);
     border-radius: var(--radius-card);
     padding: 32px 28px;
     display: flex;
@@ -721,11 +723,12 @@ h1, h2, h3, h4 {
 .blog-card:hover {
     transform: translateY(-4px);
     box-shadow: var(--shadow-card-hover);
+    border-color: transparent;
 }
 
-.bc-pink     { background: var(--pale-pink); }
-.bc-lavender { background: var(--pale-lavender); }
-.bc-peach    { background: var(--pale-peach); }
+.bc-pink     { border-top: 3px solid var(--pink); }
+.bc-lavender { border-top: 3px solid var(--magenta); }
+.bc-peach    { border-top: 3px solid #FF9966; }
 
 .blog-meta {
     display: flex;
@@ -970,7 +973,8 @@ h1, h2, h3, h4 {
         justify-content: center;
     }
     .gallery-grid { columns: 4; }
-    .blog-grid { grid-template-columns: 1fr; max-width: 600px; margin-left: auto; margin-right: auto; }
+    .blog-grid { grid-template-columns: 1fr 1fr; }
+    .blog-grid .blog-card:last-child { grid-column: 1 / -1; max-width: 600px; margin: 0 auto; width: 100%; }
     .quiz-card { flex-direction: column; align-items: flex-start; padding: 28px 28px; }
 }
 
@@ -1000,6 +1004,7 @@ h1, h2, h3, h4 {
 
     .gallery-grid { columns: 3; }
     .blog-grid { grid-template-columns: 1fr; }
+    .blog-grid .blog-card:last-child { grid-column: auto; max-width: 100%; }
     .quiz-card { flex-direction: column; align-items: flex-start; }
 
     .footer-inner { flex-direction: column; text-align: center; }
