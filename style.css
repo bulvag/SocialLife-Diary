@@ -849,6 +849,97 @@ h1, h2, h3, h4 {
     transform: translateY(-1px);
 }
 
+/* Restaurant tracker spotlight card */
+.restaurant-card {
+    display: flex;
+    align-items: center;
+    gap: 32px;
+    background: #1A0A0A;
+    background-image: linear-gradient(135deg, #2D0A00 0%, #1A0A0A 50%, #0A001A 100%);
+    border-radius: var(--radius-card);
+    padding: 36px 40px;
+    margin-bottom: 16px;
+    text-decoration: none;
+    color: #fff;
+    transition: transform 0.25s ease, box-shadow 0.25s ease;
+    box-shadow: 0 8px 32px rgba(255, 80, 20, 0.12);
+    position: relative;
+    overflow: hidden;
+}
+
+.restaurant-card::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(135deg, rgba(255,100,30,0.08) 0%, transparent 60%);
+    pointer-events: none;
+}
+
+.restaurant-card:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 20px 48px rgba(255, 80, 20, 0.22);
+}
+
+.restaurant-card-emojis {
+    font-size: 28px;
+    letter-spacing: 4px;
+    white-space: nowrap;
+    flex-shrink: 0;
+    opacity: 0.9;
+}
+
+.restaurant-card-body {
+    flex: 1;
+}
+
+.restaurant-card-label {
+    font-size: 11px;
+    font-weight: 500;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: #FF8855;
+    margin-bottom: 8px;
+}
+
+.restaurant-card-title {
+    font-family: 'Fraunces', serif;
+    font-size: clamp(20px, 2.5vw, 28px);
+    font-weight: 700;
+    color: #fff;
+    line-height: 1.25;
+    margin-bottom: 8px;
+}
+
+.restaurant-card-title em {
+    font-style: italic;
+    color: #FF8855;
+}
+
+.restaurant-card-desc {
+    font-size: 14px;
+    font-weight: 300;
+    color: rgba(255,255,255,0.5);
+    max-width: 500px;
+}
+
+.restaurant-card-btn {
+    display: inline-block;
+    background: #FF6633;
+    color: #fff;
+    font-size: 14px;
+    font-weight: 500;
+    padding: 12px 24px;
+    border-radius: var(--radius-pill);
+    white-space: nowrap;
+    flex-shrink: 0;
+    transition: background 0.2s ease, transform 0.2s ease;
+}
+
+.restaurant-card:hover .restaurant-card-btn {
+    background: #FF8844;
+    transform: translateY(-1px);
+}
+
 /* ===============================================================
    CTA SECTION
    =============================================================== */
@@ -976,6 +1067,8 @@ h1, h2, h3, h4 {
     .blog-grid { grid-template-columns: 1fr 1fr; }
     .blog-grid .blog-card:last-child { grid-column: 1 / -1; max-width: 600px; margin: 0 auto; width: 100%; }
     .quiz-card { flex-direction: column; align-items: flex-start; padding: 28px 28px; }
+    .restaurant-card { flex-direction: column; align-items: flex-start; padding: 28px 28px; gap: 20px; }
+    .restaurant-card-emojis { font-size: 22px; }
 }
 
 /* ===============================================================
@@ -1006,6 +1099,8 @@ h1, h2, h3, h4 {
     .blog-grid { grid-template-columns: 1fr; }
     .blog-grid .blog-card:last-child { grid-column: auto; max-width: 100%; }
     .quiz-card { flex-direction: column; align-items: flex-start; }
+    .restaurant-card { flex-direction: column; align-items: flex-start; gap: 16px; padding: 24px; }
+    .restaurant-card-emojis { font-size: 20px; letter-spacing: 2px; }
 
     .footer-inner { flex-direction: column; text-align: center; }
 }
