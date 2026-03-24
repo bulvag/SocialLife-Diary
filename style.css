@@ -687,6 +687,166 @@ h1, h2, h3, h4 {
 }
 
 /* ===============================================================
+   BLOG SECTION
+   =============================================================== */
+.blog-section {
+    padding: 110px 0;
+    background: var(--cream);
+}
+
+.blog-inner {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 28px;
+}
+
+/* 3-column article cards */
+.blog-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 16px;
+    margin-bottom: 16px;
+}
+
+.blog-card {
+    border-radius: var(--radius-card);
+    padding: 32px 28px;
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+    text-decoration: none;
+    transition: transform 0.25s ease, box-shadow 0.25s ease;
+}
+
+.blog-card:hover {
+    transform: translateY(-4px);
+    box-shadow: var(--shadow-card-hover);
+}
+
+.bc-pink     { background: var(--pale-pink); }
+.bc-lavender { background: var(--pale-lavender); }
+.bc-peach    { background: var(--pale-peach); }
+
+.blog-meta {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.blog-tag {
+    font-size: 11px;
+    font-weight: 600;
+    letter-spacing: 0.08em;
+    color: var(--purple);
+    background: rgba(61, 26, 94, 0.1);
+    padding: 3px 10px;
+    border-radius: var(--radius-pill);
+}
+
+.blog-read {
+    font-size: 11px;
+    color: var(--text-muted);
+    opacity: 0.7;
+}
+
+.blog-title {
+    font-family: 'Fraunces', serif;
+    font-size: clamp(18px, 2vw, 22px);
+    font-weight: 700;
+    line-height: 1.25;
+    color: var(--dark);
+    letter-spacing: -0.02em;
+    flex: 1;
+}
+
+.blog-title em { font-style: italic; color: var(--magenta); }
+
+.blog-desc {
+    font-size: 13px;
+    font-weight: 300;
+    line-height: 1.7;
+    color: var(--text-muted);
+}
+
+.blog-link {
+    font-size: 13px;
+    font-weight: 500;
+    color: var(--purple);
+    margin-top: auto;
+    transition: color 0.15s;
+}
+
+.blog-card:hover .blog-link { color: var(--magenta); }
+
+/* Quiz card — full width, dark */
+.quiz-card {
+    background: var(--dark);
+    border-radius: var(--radius-card);
+    padding: 36px 40px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 32px;
+    text-decoration: none;
+    transition: transform 0.25s ease, box-shadow 0.25s ease;
+}
+
+.quiz-card:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 20px 48px rgba(19, 10, 36, 0.28);
+}
+
+.quiz-card-text { flex: 1; }
+
+.quiz-card-label {
+    font-size: 11px;
+    font-weight: 500;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--magenta);
+    margin-bottom: 10px;
+    opacity: 0.9;
+}
+
+.quiz-card-title {
+    font-family: 'Fraunces', serif;
+    font-size: clamp(22px, 3vw, 30px);
+    font-weight: 700;
+    line-height: 1.15;
+    color: #fff;
+    letter-spacing: -0.025em;
+    margin-bottom: 10px;
+}
+
+.quiz-card-title em { font-style: italic; color: var(--magenta); }
+
+.quiz-card-desc {
+    font-size: 14px;
+    font-weight: 300;
+    color: rgba(255, 255, 255, 0.55);
+    line-height: 1.65;
+    max-width: 480px;
+}
+
+.quiz-card-btn {
+    display: inline-block;
+    background: var(--magenta);
+    color: #fff;
+    font-size: 14px;
+    font-weight: 500;
+    padding: 13px 28px;
+    border-radius: var(--radius-pill);
+    white-space: nowrap;
+    flex-shrink: 0;
+    transition: background 0.2s ease, transform 0.2s ease;
+}
+
+.quiz-card:hover .quiz-card-btn {
+    background: var(--pink);
+    transform: translateY(-1px);
+}
+
+/* ===============================================================
    CTA SECTION
    =============================================================== */
 .cta-section {
@@ -810,6 +970,8 @@ h1, h2, h3, h4 {
         justify-content: center;
     }
     .gallery-grid { columns: 4; }
+    .blog-grid { grid-template-columns: 1fr; max-width: 600px; margin-left: auto; margin-right: auto; }
+    .quiz-card { flex-direction: column; align-items: flex-start; padding: 28px 28px; }
 }
 
 /* ===============================================================
@@ -837,6 +999,8 @@ h1, h2, h3, h4 {
     .stories-grid .story-card:last-child { max-width: 100%; }
 
     .gallery-grid { columns: 3; }
+    .blog-grid { grid-template-columns: 1fr; }
+    .quiz-card { flex-direction: column; align-items: flex-start; }
 
     .footer-inner { flex-direction: column; text-align: center; }
 }
