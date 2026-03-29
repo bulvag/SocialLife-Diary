@@ -1,0 +1,274 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-4F5Q07M28P"></script>
+<script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-4F5Q07M28P');
+</script>
+<title>The Mere Exposure Effect · Why Familiarity Breeds Friendship</title>
+<meta name="description" content="You don't choose your friends as rationally as you think. Proximity and repetition do most of the work — and once you know this, you can use it deliberately.">
+
+<!-- Canonical -->
+<link rel="canonical" href="https://sociallife.makerka.com/blog/mere-exposure-effect">
+
+<!-- Open Graph -->
+<meta property="og:type" content="article">
+<meta property="og:title" content="The Mere Exposure Effect · Why Familiarity Breeds Friendship">
+<meta property="og:description" content="You don't choose your friends as rationally as you think. Proximity and repetition do most of the work — and once you know this, you can use it deliberately.">
+<meta property="og:url" content="https://sociallife.makerka.com/blog/mere-exposure-effect">
+<meta property="og:site_name" content="SocialLife Diary">
+
+<!-- Twitter Card -->
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="The Mere Exposure Effect · Why Familiarity Breeds Friendship">
+<meta name="twitter:description" content="You don't choose your friends as rationally as you think. Proximity and repetition do most of the work — and once you know this, you can use it deliberately.">
+
+<!-- JSON-LD -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Article",
+  "headline": "The Mere Exposure Effect · Why Familiarity Breeds Friendship",
+  "description": "You don't choose your friends as rationally as you think. Proximity and repetition do most of the work — and once you know this, you can use it deliberately.",
+  "url": "https://sociallife.makerka.com/blog/mere-exposure-effect",
+  "publisher": { "@type": "Organization", "name": "SocialLife Diary", "url": "https://sociallife.makerka.com" },
+  "mainEntityOfPage": { "@type": "WebPage", "@id": "https://sociallife.makerka.com/blog/mere-exposure-effect" },
+  "keywords": ["mere exposure effect", "why we like familiar people", "how friendships form", "proximity and friendship", "Robert Zajonc", "familiarity breeds liking", "social psychology"],
+  "articleSection": "Psychology",
+  "about": [{ "@type": "Thing", "name": "Mere Exposure Effect" }, { "@type": "Thing", "name": "Social Psychology" }]
+}
+</script>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,600;0,9..144,700;1,9..144,400;1,9..144,700&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;1,9..40,300&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../content.css">
+<style>
+  /* Exposure counter visualization */
+  .exposure-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(48px, 1fr));
+    gap: 8px;
+    margin: 28px 0;
+  }
+
+  .exposure-dot {
+    aspect-ratio: 1;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 11px;
+    font-weight: 500;
+    font-family: 'DM Sans', sans-serif;
+    color: #fff;
+    transition: transform 0.2s;
+  }
+
+  .exposure-dot:hover { transform: scale(1.1); }
+
+  .exposure-dot.dim { background: rgba(61,26,94,0.08); color: #9B88AA; }
+  .exposure-dot.low { background: #D4A8F0; color: #3D1A5E; }
+  .exposure-dot.mid { background: #9B5DD6; }
+  .exposure-dot.high { background: #CC44FF; }
+
+  .exposure-legend {
+    display: flex;
+    gap: 16px;
+    flex-wrap: wrap;
+    margin-top: 8px;
+    font-size: 12px;
+    color: #6B5A80;
+    font-family: 'DM Sans', sans-serif;
+  }
+
+  .exposure-legend span {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+  }
+
+  .legend-dot {
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    flex-shrink: 0;
+  }
+</style>
+</head>
+<body>
+<nav class="site-nav">
+  <div class="site-nav-inner">
+    <a href="https://sociallife.makerka.com" class="site-nav-logo">SocialLife Diary</a>
+    <a href="https://apps.apple.com/rs/app/sociallife-diary/id6758588325" class="site-nav-btn" target="_blank" rel="noopener">Get the app</a>
+  </div>
+</nav>
+
+<div class="container">
+
+  <nav class="breadcrumb">
+    <a href="https://sociallife.makerka.com">SocialLife Diary</a>
+    <span>/</span>
+    <span>Mere Exposure Effect</span>
+  </nav>
+
+  <header>
+    <p class="eyebrow">Social Life Check · Psychology</p>
+    <h1>The mere exposure effect.<br><em>You like people more just by seeing them.</em></h1>
+    <p class="lead">Friendship doesn't begin with a spark of connection. Most of the time it begins with being in the same place, repeatedly. The psychology behind this is stranger and more useful than you'd expect.</p>
+    <div class="meta">
+      <span>6 min read</span>
+      <span>·</span>
+      <span>Psychology · Friendships</span>
+    </div>
+  </header>
+
+  <div class="divider"></div>
+
+  <div class="article-body">
+
+    <p>In 1968, psychologist Robert Zajonc published a paper with a simple but unsettling thesis: mere repeated exposure to a stimulus is sufficient to enhance your attitude toward it. He called it the <em>mere exposure effect</em>.</p>
+
+    <p>He demonstrated it first with nonsense syllables, then with Chinese characters shown to people who couldn't read Chinese, then with photographs of strangers. In every case, the more often people were shown something — even subliminally, without awareness — the more they rated it positively. No interaction required. No reason given. Just repetition.</p>
+
+    <div class="callout">
+      <p>"Mere repeated exposure of the individual to a stimulus is a sufficient condition for the enhancement of his attitude toward it." — Robert Zajonc, 1968</p>
+    </div>
+
+    <p>The effect holds for faces, music, words, shapes, and — most relevant to social life — for people. The more you encounter someone, the more you tend to like them. Not because they've earned it. Not because you've had meaningful exchanges. Simply because they've become familiar.</p>
+
+    <h2>Why the brain treats familiarity as safety</h2>
+
+    <p>The underlying mechanism is threat detection. The brain continuously scans for danger, and unfamiliar stimuli register as potential threats until proven otherwise. Each time you encounter something without incident, your threat response dials down slightly and something like comfort takes its place.</p>
+
+    <p>With people, this translates directly to warmth. The stranger in your office who you walk past every morning becomes someone you nod to, then someone you say good morning to, then someone you genuinely like — without any conscious decision being made.</p>
+
+    <div class="key-point">
+      <span class="key-dot"></span>
+      <p>Your brain runs a quiet background process: familiar = safe = good. Most of the time you never notice it operating. You just find yourself liking someone and assume it's because of who they are.</p>
+    </div>
+
+    <h2>How often do you need to see someone?</h2>
+
+    <p>Zajonc's original research suggested the effect plateaus around 10–20 exposures, with the steepest gains in the first few encounters. Later research has found the optimal range to be somewhere between 10 and 30 exposures — beyond that, the returns diminish and can even reverse if the repeated exposure feels forced or unwanted.</p>
+
+    <!-- Exposure visualization -->
+    <div class="exposure-grid">
+      <div class="exposure-dot dim">0</div>
+      <div class="exposure-dot dim">1</div>
+      <div class="exposure-dot low">2</div>
+      <div class="exposure-dot low">3</div>
+      <div class="exposure-dot low">4</div>
+      <div class="exposure-dot mid">5</div>
+      <div class="exposure-dot mid">6</div>
+      <div class="exposure-dot mid">7</div>
+      <div class="exposure-dot mid">8</div>
+      <div class="exposure-dot high">9</div>
+      <div class="exposure-dot high">10</div>
+      <div class="exposure-dot high">11</div>
+      <div class="exposure-dot high">12</div>
+      <div class="exposure-dot high">15</div>
+      <div class="exposure-dot high">20</div>
+      <div class="exposure-dot mid">30+</div>
+    </div>
+    <div class="exposure-legend">
+      <span><span class="legend-dot" style="background:#D4A8F0;"></span> warming up</span>
+      <span><span class="legend-dot" style="background:#9B5DD6;"></span> genuine liking</span>
+      <span><span class="legend-dot" style="background:#CC44FF;"></span> peak effect</span>
+    </div>
+
+    <h2>The proximity connection</h2>
+
+    <p>This is why proximity matters so much in friendship formation. Dozens of studies on college dorms, workplaces, and neighborhoods have found the same thing: the people who end up as your friends are overwhelmingly the people who were geographically close to you — not the most interesting, or the most compatible, but simply the most accessible.</p>
+
+    <p>In one classic study, students were randomly assigned to dorm rooms. A year later, they were most likely to be friends with the people whose rooms were physically closest to theirs — not because of any shared interests, but because proximity created the exposures that generated liking.</p>
+
+    <div class="callout">
+      <p>You didn't choose your closest childhood friends. Proximity chose them for you. The same is true of most adult friendships, even when it doesn't feel that way.</p>
+    </div>
+
+    <h2>What changes when you know this</h2>
+
+    <p>Once you understand the mere exposure effect, you can stop waiting for lightning-bolt connection and start engineering proximity instead. If there's someone you'd like to know better, the most reliable strategy isn't a brilliant conversation — it's simply showing up in the same contexts repeatedly.</p>
+
+    <p>This is what makes social routines so valuable. The gym class you take every Tuesday. The coffee place you stop at before work. The neighborhood bar where you're a regular. These aren't just habits — they're exposure engines, quietly building familiarity with a consistent cast of people around you.</p>
+
+    <div class="key-point">
+      <span class="key-dot"></span>
+      <p>The question isn't "how do I make friends?" It's "where do I show up, and how often?" Consistent presence in shared spaces is the mechanism. Everything else follows from it.</p>
+    </div>
+
+    <h2>The flip side: absence degrades familiarity</h2>
+
+    <p>The effect works in reverse, too. When you stop seeing someone, familiarity fades, and with it, some of the warmth. This is one of the reasons friendships that feel solid can erode faster than expected when life circumstances change — a move, a new job, a different routine.</p>
+
+    <p>You don't need a falling out to lose a friend. You just need the exposures to stop. The relationship doesn't collapse; it gradually becomes unfamiliar. And unfamiliar, to a brain that runs on pattern recognition, quietly becomes distant.</p>
+
+    <div class="listening-section">
+      <p class="section-label">Further listening</p>
+
+      <a class="podcast-card" href="https://www.npr.org/2022/01/28/1076485435/why-it-s-so-hard-to-make-friends-as-an-adult" target="_blank" rel="noopener">
+        <div class="podcast-icon">🎙</div>
+        <div class="podcast-info">
+          <p class="podcast-show">NPR · Life Kit</p>
+          <p class="podcast-title">Why It's So Hard to Make Friends as an Adult</p>
+          <p class="podcast-desc">Explores the structural reasons adult friendship is hard — including how proximity and repeated contact drive connection, and how to deliberately recreate those conditions.</p>
+        </div>
+      </a>
+
+      <a class="podcast-card" href="https://www.hiddenbrain.org/podcast/how-to-make-friends-and-influence-people/" target="_blank" rel="noopener">
+        <div class="podcast-icon">🎙</div>
+        <div class="podcast-info">
+          <p class="podcast-show">Hidden Brain · Shankar Vedantam</p>
+          <p class="podcast-title">How to Make Friends and Influence People</p>
+          <p class="podcast-desc">The psychology of friendship formation — covering proximity effects, shared experience, and what the research says about how adult friendships actually develop.</p>
+        </div>
+      </a>
+    </div>
+
+    <div class="related-articles">
+      <p class="section-label">Related reading</p>
+      <div class="related-grid">
+        <a href="dunbars-number.html" class="related-card">
+          <span class="related-tag">Psychology</span>
+          <p class="related-title">Dunbar's Number. Why you can't have 100 real friends.</p>
+          <span class="related-read">7 min read</span>
+        </a>
+        <a href="how-to-make-friends-as-an-adult.html" class="related-card">
+          <span class="related-tag">Friendships</span>
+          <p class="related-title">How to make friends as an adult.</p>
+          <span class="related-read">7 min read</span>
+        </a>
+        <a href="how-to-reconnect-with-old-friends.html" class="related-card">
+          <span class="related-tag">Friendships</span>
+          <p class="related-title">How to reconnect with old friends.</p>
+          <span class="related-read">7 min read</span>
+        </a>
+      </div>
+    </div>
+    <div class="cta-card">
+      <p class="cta-eyebrow">How does your social life look?</p>
+      <h3 class="cta-title">Take the <em>Social Life Check</em></h3>
+      <p class="cta-text">10 psychology-based questions. Find out where your social life actually stands right now.</p>
+      <div class="cta-actions">
+        <a href="../quiz/social-score.html" class="btn-cta">Take the Check →</a>
+        <a href="https://sociallife.makerka.com" class="btn-cta-ghost">Explore SocialLife Diary →</a>
+      </div>
+    </div>
+    </div>
+
+  </div>
+
+  <footer>
+    <p>Part of <a href="https://sociallife.makerka.com">SocialLife Diary</a> · No ads · No tracking</p>
+  </footer>
+
+</div>
+</body>
+</html>

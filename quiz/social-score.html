@@ -3,6 +3,14 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-4F5Q07M28P"></script>
+<script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-4F5Q07M28P');
+</script>
 <title>Social Life Check · How Social Are You?</title>
 <meta name="description" content="Take the Social Life Check · 10 questions to find out how active and fulfilling your social life really is.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -346,6 +354,66 @@
 
   .btn-cta:hover { transform: translateY(-2px); box-shadow: 0 8px 28px rgba(0, 0, 0, 0.2); }
 
+  /* ─── Blog links (post-result) ─── */
+  .blog-links {
+    margin-top: 28px;
+    margin-bottom: 4px;
+  }
+
+  .blog-links-label {
+    font-size: 11px;
+    font-weight: 500;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--purple-mid);
+    margin-bottom: 12px;
+    opacity: 0.85;
+  }
+
+  .blog-links-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 8px;
+  }
+
+  @media (max-width: 440px) {
+    .blog-links-grid { grid-template-columns: 1fr; }
+  }
+
+  .blog-link-card {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    padding: 14px 16px;
+    text-decoration: none;
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+    transition: border-color 0.15s, box-shadow 0.15s;
+  }
+
+  .blog-link-card:hover {
+    border-color: rgba(204, 68, 255, 0.3);
+    box-shadow: 0 4px 16px rgba(61, 26, 94, 0.07);
+  }
+
+  .blog-link-tag {
+    font-size: 10px;
+    font-weight: 500;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--purple-mid);
+  }
+
+  .blog-link-title {
+    font-family: 'Fraunces', serif;
+    font-size: 13px;
+    font-weight: 600;
+    color: var(--text);
+    line-height: 1.4;
+    margin: 0;
+  }
+
   /* ─── Retake + Footer ─── */
   .retake {
     display: block; text-align: center; margin-top: 16px;
@@ -546,6 +614,48 @@
       <h3 class="cta-title">Meet <em>SocialLife Diary</em></h3>
       <p class="cta-text">Your private journal for social events, friendships, and memories. See how your social life evolves · week by week, year by year.</p>
       <a href="https://sociallife.makerka.com" class="btn-cta">Try SocialLife Diary →</a>
+    </div>
+
+    <div class="blog-links">
+      <p class="blog-links-label">From our blog</p>
+      <div class="blog-links-grid">
+        <a href="../blog/why-friendships-fade-30s.html" class="blog-link-card">
+          <span class="blog-link-tag">Psychology</span>
+          <p class="blog-link-title">Why friendships fade in your 30s.</p>
+        </a>
+        <a href="../blog/dunbars-number.html" class="blog-link-card">
+          <span class="blog-link-tag">Psychology</span>
+          <p class="blog-link-title">Dunbar's Number. Why you can't have 100 real friends.</p>
+        </a>
+        <a href="../blog/loneliness-two-types.html" class="blog-link-card">
+          <span class="blog-link-tag">Psychology</span>
+          <p class="blog-link-title">Loneliness. There are two kinds.</p>
+        </a>
+        <a href="../blog/social-anxiety-vs-introversion.html" class="blog-link-card">
+          <span class="blog-link-tag">Psychology</span>
+          <p class="blog-link-title">Social anxiety vs introversion. Not the same.</p>
+        </a>
+        <a href="../blog/science-of-good-conversations.html" class="blog-link-card">
+          <span class="blog-link-tag">Connection</span>
+          <p class="blog-link-title">The science of good conversations.</p>
+        </a>
+        <a href="../blog/how-to-reconnect-with-old-friends.html" class="blog-link-card">
+          <span class="blog-link-tag">Friendships</span>
+          <p class="blog-link-title">How to reconnect with old friends.</p>
+        </a>
+        <a href="../blog/how-to-make-friends-as-an-adult.html" class="blog-link-card">
+          <span class="blog-link-tag">Friendships</span>
+          <p class="blog-link-title">How to make friends as an adult.</p>
+        </a>
+        <a href="../blog/mere-exposure-effect.html" class="blog-link-card">
+          <span class="blog-link-tag">Psychology</span>
+          <p class="blog-link-title">The mere exposure effect. Why familiarity breeds friendship.</p>
+        </a>
+        <a href="../blog/why-small-talk-isnt-shallow.html" class="blog-link-card">
+          <span class="blog-link-tag">Connection</span>
+          <p class="blog-link-title">Why small talk isn't shallow.</p>
+        </a>
+      </div>
     </div>
 
     <span class="retake" onclick="retake()">← Take the check again</span>
