@@ -53,7 +53,7 @@ Files: 001.png through 013.png (in /assets/screenshots/ folder)
 - 010: Settings (rating, money, mood, drinks toggles)
 - 011: PDF report export (unused on site currently)
 - 012: Stats screen scrolled to tags/vibes/calendar + meetups on selected day
-- 013: Settings scrolled to stats period + JSON export/import
+- 013: Money stats (total spending, averages, top expensive meetups, spending by weekday)
 
 ## File Structure
 ```
