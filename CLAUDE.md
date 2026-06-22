@@ -12,10 +12,12 @@ SocialLife Diary is a personal social life tracker. You log meetups, the people 
 
 Key features:
 - Log meetups with date, place, photo, mood, notes, and expenses
+- Rate every meetup's vibe (1-10) and see average ratings per person and overall
 - Track which people you see most (and when you last saw them)
 - Map view of all your social places
-- Stats: meetup frequency, top people, spending, mood over time, social streaks
+- Stats: meetup frequency, top people, vibe ratings, spending, mood over time, social streaks
 - Photo gallery of memories
+- Export/import your data as JSON, generate PDF reports
 - Private — everything stays on your device
 
 Tagline ideas: "Your social life, made visible." / "Remember everything. Miss nothing." / "Track who you see. See who matters."
@@ -38,17 +40,20 @@ Tagline ideas: "Your social life, made visible." / "Remember everything. Miss no
 6. **Download CTA** — big, bold, App Store button
 
 ## Screenshots Available
-Files: 001.png through 010.png (in /assets/screenshots/ folder)
+Files: 001.png through 013.png (in /assets/screenshots/ folder)
 - 001: Home feed (list of meetups)
 - 002: New meetup form
-- 003: Meetup detail (Alex's b-day party)
+- 003: Meetup detail (day trip, with vibe rating + notes)
 - 004: Photo gallery grid
-- 005: Stats overview with calendar
+- 005: Stats overview with calendar + vibe score card
 - 006: Stats detail (overview, social streak)
-- 007: People stats
+- 007: People stats with per-person vibe ratings
 - 008: Places map
 - 009: Tags stats
-- 010: Settings
+- 010: Settings (rating, money, mood, drinks toggles)
+- 011: PDF report export (unused on site currently)
+- 012: Stats screen scrolled to tags/vibes/calendar + meetups on selected day
+- 013: Settings scrolled to stats period + JSON export/import
 
 ## File Structure
 ```
@@ -57,7 +62,7 @@ style.css
 script.js
 assets/
   screenshots/
-    001.png ... 010.png
+    001.png ... 013.png
 ```
 
 ## Rules for Claude Code
